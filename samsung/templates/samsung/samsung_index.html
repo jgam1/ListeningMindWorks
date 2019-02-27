@@ -1,0 +1,17 @@
+{% extends "base_samsung.html" %}
+
+<title>{% block title %}SAMSUNG Galaxy - Google Keyword Monitoring{% endblock %}</title>
+{% block content %}
+<form method='post' action="{% url 'samsung:samsung_index' %}" enctype="multipart/form-data">
+	{% csrf_token %}
+	<table>
+	{{ form.as_table }}
+	</table>
+	<button type="submit" value="Start Monitoring" class='btn btn-primary btn-xl' onclick="button_clicked();">File Upload</button>
+	<script type="text/javascript">
+        function button_clicked(){
+            alert("Monitoring Starts!")
+        }
+        </script>
+</form>
+{% endblock content %}
