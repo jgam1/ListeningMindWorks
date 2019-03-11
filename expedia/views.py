@@ -72,7 +72,7 @@ def process(request):
     
     # Excel Download
     # 저장되는 위치 바뀌면 이 경로도 바뀌어야 함 
-    filepath = os.path.join(settings.BASE_DIR, f_name)
+    filepath = os.path.join(settings.MEDIA_ROOT, f_name)
     filename = os.path.basename(filepath)
 
     with open(filepath, 'rb') as f:
@@ -95,6 +95,7 @@ def pc_powerlink(kw, company):
     
     # ranking check list
     pc_power_ranking = list()
+    print('kw is : ', kw)
     pc_power_url = list()
     
     # 검색어마다 회사별 순위 체크
@@ -640,7 +641,7 @@ def check_list():
 
 def excel_out(f_name, kw, company, pc_powerlink_ranking, pc_powerlink_ranking_url, pc_website_ranking, pc_website_url, pc_naverpost_ranking, pc_naverpost_url, pc_naverblog_ranking, pc_naverblog_url, m_powerlink_ranking, m_powerlink_ranking_url, m_website_ranking, m_website_url, m_naverpost_ranking, m_naverpost_url, m_naverblog_ranking, m_naverblog_url):
     wb = Workbook()
-
+    print('kws are ',kw)
     ws = list()
     ws_count = 0
     for com_name in sorted(company):
